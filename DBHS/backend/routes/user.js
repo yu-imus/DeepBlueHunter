@@ -1,8 +1,9 @@
-const express = require('express');
+import express from 'express';
+import multer from 'multer';
+import User from '../models/User.js';
+import { protect } from '../middleware/auth.js';
+
 const router = express.Router();
-const multer = require('multer');
-const User = require('../models/User');
-const authMiddleware = require('../middleware/auth');
 
 const upload = multer({ dest: 'uploads/' });
 
@@ -33,4 +34,4 @@ router.put('/profile', authMiddleware, upload.single('profilePicture'), async (r
   }
 });
 
-module.exports = router;
+export default router;

@@ -1,0 +1,12 @@
+.trucking-options {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.trucking-options .primary-btn {
+  min-width: 160px;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+}

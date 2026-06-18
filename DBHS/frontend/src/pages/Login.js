@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import '../styles/Auth.css'; // shared CSS for Login & Register
+import '../styles/Auth.css';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -11,7 +11,7 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:5000/api/auth/login', { email, password, role })
+    axios.post('http://localhost:5000/api/users/login', { email, password, role })
       .then(res => {
         console.log(res.data.message);
         if (res.data.token) {
@@ -28,6 +28,7 @@ function Login() {
   return (
     <div className="auth-container">
       <h2>DeepBlueHunter Login</h2>
+      {/* {error && <p className="text-red-500 mb-4 text-sm">{error}</p>} */}
       <form onSubmit={handleSubmit}>
         <input 
           type="email" 

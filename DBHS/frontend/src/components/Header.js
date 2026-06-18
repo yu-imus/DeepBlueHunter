@@ -15,7 +15,6 @@ function Header({ userName = "John Doe", userRole = "Admin" }) {
   return (
     <header className="app-header">
       <div className="header-left">
-        <img src="/logo.png" alt="JL-U1 Logo" className="company-logo" />
         <span className="company-name">JL-U1 Enterprise</span>
       </div>
 

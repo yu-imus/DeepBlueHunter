@@ -1,28 +1,26 @@
-const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
+import mongoose from 'mongoose';
+import bcrypt from 'bcryptjs';
+import { protect } from '../middleware/auth.js';
 
 const userSchema = new mongoose.Schema({
-  name: { type: String, required: true },
+  username: { type: String, required: true, unique: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  role: { type: String, enum: ['admin', 'admin assistant', 'plant manager'], required: true },
+  role: { type: String, enum: ['admin', 'admin assistant', 'plant manager', 'employee'], required: true },
   profilePicture: { type: String },
   yearJoined: { type: Number },
   birthdate: { type: Date }
-});
+}, {timestamps: true});
 
 // Pre-save hook to hash password
-userSchema.pre('save', async function (next) {
-  // Only hash if password is new or modified
-  if (!this.isModified('password')) return next();
-
-  try {
-    const salt = await bcrypt.genSalt(10);
-    this.password = await bcrypt.hash(this.password, salt);
-    next();
-  } catch (err) {
-    next(err);
-  }
+userSchema.pre('save', async function () {
+  if (!this.isModified('password')) return;
+  const salt = await bcrypt.genSalt(10);
+  this.password = await bcrypt.hash(this.password, salt);
 });
 
-module.exports = mongoose.model('User', userSchema);
+userSchema.methods.matchPassword = async function (enteredPassword) {
+  return await bcrypt.compare(enteredPassword, this.password);
+};
+
+export default mongoose.model('User', userSchema);

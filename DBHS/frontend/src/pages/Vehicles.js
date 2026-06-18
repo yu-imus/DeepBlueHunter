@@ -8,7 +8,7 @@ function Vehicles() {
       <Header />
       <div className="page-container">
         <h2>Vehicle Management</h2>
-        <p>Manage vehicle records, details, and assignments here.</p>
+        <p>Register, track, and manage company vehicles and assignments here.</p>
         <button className="primary-btn">Register New Vehicle</button>
       </div>
     </>

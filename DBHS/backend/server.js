@@ -1,10 +1,13 @@
-const express = require('express');
-const cors = require('cors');
-const mongoose = require('mongoose');
-require('dotenv').config();
-const UserModel =  require('./models/User');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
+import express from 'express';
+import cors from 'cors';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+import UserModel from './models/User.js';
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
+import authRoutes from './routes/auth.js';
+
+dotenv.config();
 
 const app = express();
 
@@ -12,9 +15,7 @@ const app = express();
 app.use(express.json());
 app.use(cors({ origin: 'http://localhost:3000' })); // allow requests from React dev server
 
-
-const authRoutes = require('./routes/auth');
-app.use('/api/auth', authRoutes);
+app.use('/api/users', authRoutes);
 
 // Routes placeholder
 app.get('/', (req, res) => {
