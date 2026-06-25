@@ -3,12 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import { FaUserCircle } from 'react-icons/fa';
 import '../styles//Header.css';
 
-function Header({ userName = "John Doe", userRole = "Admin" }) {
+function Header({ user, setUser }) {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
 
   const handleLogout = () => {
     localStorage.removeItem('token');
+    setUser(null);
     navigate('/login');
   };
 
@@ -22,8 +23,8 @@ function Header({ userName = "John Doe", userRole = "Admin" }) {
         <div className="user-info" onClick={() => setOpen(!open)}>
           <FaUserCircle className="user-icon" />
           <div className="user-details">
-            <span className="user-name">{userName}</span>
-            <span className="user-role">{userRole}</span>
+            <span className="user-name">{user?.username}</span>
+            <span className="user-role">{user?.role}</span>
           </div>
         </div>
         {open && (

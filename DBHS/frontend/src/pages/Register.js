@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Auth.css'; // shared CSS for Login & Register
 
-function Register() {
+function Register(setUser) {
   const [formData, setFormData] = useState({
     username: '',
     email: '',

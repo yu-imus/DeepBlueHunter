@@ -67,12 +67,6 @@ router.post('/login', async (req, res) => {
         token,
       }
       );
-    
-    // if (user.role !== role) {
-    //   return res.status(400).json({ error: 'Role does not match assigned role' });
-    // }
-    res.status(200).json({ message: 'Login successful', token });
-
   } catch (err) {
     console.error('Login error:', err);
     res.status(500).json({ error: 'Server error' });

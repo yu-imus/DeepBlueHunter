@@ -1,18 +1,15 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Header from '../components/Header';
 import logo from '../assets/JLU1-logo.png';
 import '../styles/Dashboard.css';
 
-
-function Dashboard() {
+function Dashboard({ user, error, setUser }) {
   const navigate = useNavigate();
   document.title = "JLU1 | Dashboard";
 
   return (
   <>
-  <Header />
 
     <div className="dashboard-container">
       <div className="dashboard-header">
@@ -22,8 +19,8 @@ function Dashboard() {
 
       <div className="dashboard-sections">
           <button className="dashboard-card" onClick={() => navigate('/payroll')}>
-            <h3>Payroll</h3>
-            <p>View and manage payroll records here.</p>
+            <h3>Driver Payroll</h3>
+            <p>View and manage driver payroll records here.</p>
           </button>
 
           <button className="dashboard-card" onClick={() => navigate('/vehicles')}>

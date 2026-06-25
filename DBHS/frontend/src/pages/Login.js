@@ -3,11 +3,13 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Auth.css';
 
-function Login() {
+function Login( { setUser } ) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [role, setRole] = useState('');
   const navigate = useNavigate();
+
+  const [error, setError] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,26 +17,30 @@ function Login() {
       .then(res => {
         console.log(res.data.message);
         if (res.data.token) {
-          localStorage.setItem('token', res.data.token);
+          localStorage.setItem("user", JSON.stringify(res.data)); 
+          localStorage.setItem("token", res.data.token);
+          console.log(res.data);
+          setUser(res.data);
           navigate('/dashboard');
         }
       })
       .catch(err => {
-        console.error(err.response?.data?.error || 'Login failed');
-        alert(err.response?.data?.error || 'Login failed');
+        setError(err.response?.data?.error || 'Login failed');
+        // alert(err.response?.data?.error || 'Login failed');
       });
   };
 
   return (
     <div className="auth-container">
       <h2>DeepBlueHunter Login</h2>
-      {/* {error && <p className="text-red-500 mb-4 text-sm">{error}</p>} */}
+      {error && <p className="text-red-500 mb-4 text-sm">{error}</p>}
       <form onSubmit={handleSubmit}>
         <input 
           type="email" 
           placeholder="Email" 
           value={email} 
-          onChange={(e) => setEmail(e.target.value)} 
+          onChange={(e) => setEmail(e.target.value)}
+          autocomplete="off"
           required 
         />
         <input 

@@ -1,15 +1,13 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import Header from '../components/Header';
-import '../styles/Page.css';
-import '../styles/Trucking.css';
+import '../../styles/Page.css';
+import '../../styles/Trucking.css';
 
 function Trucking() {
   const navigate = useNavigate();
 
   return (
     <>
-      <Header />
       <div className="page-container">
         <h2>Trucking Management</h2>
         <p>Select an option below to manage vehicles or trips.</p>
