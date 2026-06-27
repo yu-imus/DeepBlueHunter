@@ -6,6 +6,7 @@ import UserModel from './models/User.js';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import authRoutes from './routes/auth.js';
+import vehicleRoutes from './routes/vehicleRoutes.js'
 
 dotenv.config();
 
@@ -32,6 +33,8 @@ async function connectMongo() {
     process.exit(1);
   }
 }
+
+app.use('/api/vehicles', vehicleRoutes);
 
 const PORT = process.env.PORT || 5000;
 connectMongo().then(() => {

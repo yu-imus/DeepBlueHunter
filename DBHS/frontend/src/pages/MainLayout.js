@@ -7,7 +7,7 @@ function MainLayout({ user, setUser }) {
         <>
             <Header user={user} setUser={setUser} />
             <main>
-                <Outlet />
+                <Outlet context={{ user, setUser }} />
             </main>
         </>
     );

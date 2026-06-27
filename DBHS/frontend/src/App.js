@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import LandingPage from './pages/LandingPage';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import Register from './pages/Register';
 import Payroll from './pages/Payroll';
-import Vehicles from './pages/Trucking/Vehicles';
 import Trucking from './pages/Trucking/Trucking';
 import UserProfile from './pages/UserProfile';
 import axios from 'axios';
 import MainLayout from './pages/MainLayout';
+import VehiclesPage from './pages/Trucking/VehiclesPage';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -20,7 +21,7 @@ function App() {
       const token = localStorage.getItem('token');
         if (token) {
           try{
-            const res = await axios.get('api/users/me', {
+            const res = await axios.get('http://localhost:5000/api/users/me', {
               headers: { 'Authorization': `Bearer ${token}` }
             });
             setUser(res.data);
@@ -52,6 +53,7 @@ function App() {
     <Router>
       <Routes>
         { /* Public */ }
+        <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<Login setUser={setUser} />} />
         <Route path="/register" element={<Register setUser={setUser} />} />
         
@@ -59,7 +61,7 @@ function App() {
         <Route element={<MainLayout user={user} setUser={setUser} />}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/payroll" element={<Payroll />} />
-          <Route path="/vehicles" element={<Vehicles />} />
+          <Route path="/vehicles" element={<VehiclesPage />} />
           <Route path="/trucking" element={<Trucking />} />
           <Route path="/userprofile" element={<UserProfile />} />
         </Route>

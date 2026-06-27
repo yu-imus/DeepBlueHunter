@@ -1,0 +1,101 @@
+/* src/pages/LandingPage.css */
+
+.landing-container {
+  font-family: 'Inter', sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+
+section {
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.greeting {
+  background: linear-gradient(135deg, #001f3f, #003366);
+  color: #fff;
+}
+
+.greeting h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.greeting p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.primary-btn, .secondary-btn {
+  padding: 0.50rem 1rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.primary-btn {
+  background: #fff;
+  color: #001f3f;
+  border: none;
+  font-weight: 600;
+}
+
+.primary-btn:hover {
+  background: #0a912c;
+}
+
+.secondary-btn {
+  background: #aa601c;
+  color: #fff;
+  border: 2px solid #fff;
+  font-weight: 600;
+}
+
+.secondary-btn:hover {
+  background: #5d340e;
+  color: #ffffff;
+}
+
+.mission-vision-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  /* gap: 2rem; */
+}
+
+.mission-vision-container div{
+  background-color: whitesmoke;
+  border: #aa601c 3px solid;
+  border-radius: 15px;
+  width: 30vw;
+  padding: 1rem;
+}
+
+.about,
+.contact {
+  background: #f9f9f9;
+  margin-top: 1rem;
+}
+
+.mission-vision h2,
+.about h2,
+.contact h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #001f3f;
+}
+
+.mission-vision p,
+.about p,
+.contact p {
+  max-width: 800px;
+  margin: 0 auto 1rem auto;
+}
