@@ -1,0 +1,179 @@
+/* VehicleDetails.css */
+.vehicle-details-page {
+  padding: 24px;
+  font-family: Inter, Arial, sans-serif;
+  color: #222;
+}
+
+.vehicle-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.vehicle-header h1 {
+  margin: 0;
+  font-size: 22px;
+  color: #0b3b66;
+}
+
+.vehicle-sub {
+  color: #555;
+  margin-top: 6px;
+}
+
+.header-controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.month-picker input[type="month"] {
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: white;
+}
+
+.primary-btn {
+  background: #0b3b66;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.primary-btn:hover { background: #08314f; }
+
+.monthly-metrics {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.metric-card {
+  flex: 1;
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 1px 4px rgba(12,12,12,0.04);
+}
+
+.metric-title {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.metric-value {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.metric-value.positive { color: #0b3b66; }
+.metric-value.negative { color: #c0392b; }
+
+.entries-section {
+  margin-top: 8px;
+}
+
+.entries-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.entries-table-wrapper {
+  overflow-x: auto;
+  background: white;
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+}
+
+.entries-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.entries-table th,
+.entries-table td {
+  padding: 12px 10px;
+  border-bottom: 1px solid #f0f0f0;
+  text-align: left;
+}
+
+.entries-table thead th {
+  background: #fafafa;
+  font-weight: 600;
+  color: #333;
+}
+
+.entries-table tbody tr:hover {
+  background: #fbfbfb;
+}
+
+.entry-tag {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  margin-right: 8px;
+  text-transform: capitalize;
+}
+
+.tag-trip { background: #e8f6ff; color: #0b3b66; }
+.tag-maint { background: #fff0f0; color: #c0392b; }
+
+.entry-details { margin-top: 6px; color: #444; }
+
+.numeric { text-align: right; }
+
+.no-data {
+  text-align: center;
+  padding: 18px;
+  color: #777;
+}
+
+/* Entry modal specific */
+.entry-modal .field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.entry-modal textarea {
+  min-height: 80px;
+  resize: vertical;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.entry-modal input[type="number"],
+.entry-modal input[type="date"],
+.entry-modal select {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.form-error {
+  color: #c0392b;
+  margin-bottom: 8px;
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  color: #0b3b66;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.link-btn.danger { color: #c0392b; }

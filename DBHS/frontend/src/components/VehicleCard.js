@@ -1,13 +1,15 @@
 import { IoMdInformationCircleOutline } from "react-icons/io";
 import { PiTruckTrailerFill } from "react-icons/pi";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/VehiclesPage.css";
 
 function VehicleCard({ vehicle, onClick, onDelete, onEdit, userRole }) {
+  const navigate = useNavigate();
   const [showOptions, setShowOptions] = useState(false);
-  console.log("VehicleCard userRole:", userRole);
+  // console.log("VehicleCard userRole:", userRole);
   return (
-    <div className="vehicle-card" onClick={() => onClick(vehicle)}>
+    <div className="vehicle-card" onClick={() => navigate(`/vehicles/${vehicle._id}`)}>
       <div className="vehicle-icon">
         <PiTruckTrailerFill size={40} color="navy" />
       </div>

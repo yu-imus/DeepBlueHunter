@@ -15,6 +15,13 @@ function Trucking() {
         <div className="trucking-options">
           <button 
             className="primary-btn" 
+            onClick={() => navigate('/payroll')}
+          >
+            Drivers & Payroll
+          </button>
+
+          <button 
+            className="primary-btn" 
             onClick={() => navigate('/vehicles')}
           >
             Vehicles

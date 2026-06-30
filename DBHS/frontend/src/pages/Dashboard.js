@@ -18,19 +18,10 @@ function Dashboard({ user, error, setUser }) {
       </div>
 
       <div className="dashboard-sections">
-          <button className="dashboard-card" onClick={() => navigate('/payroll')}>
-            <h3>Driver Payroll</h3>
-            <p>View and manage driver payroll records here.</p>
-          </button>
-
-          <button className="dashboard-card" onClick={() => navigate('/vehicles')}>
-            <h3>Vehicles</h3>
-            <p>Manage vehicle records and details.</p>
-          </button>
 
           <button className="dashboard-card" onClick={() => navigate('/trucking')}>
             <h3>Trucking</h3>
-            <p>Manage trucking operations and related information.</p>
+            <p>Manage VEHICLES and TRIP operations.</p>
           </button>
 
           <button className="dashboard-card" onClick={() => navigate('/sardines')}>

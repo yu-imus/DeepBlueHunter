@@ -64,7 +64,7 @@ function LandingPage() {
         <h2>Contact Us</h2>
         <p>Email: support@jlu1enterprise.com</p>
         <p>Phone: +63 912 345 6789</p>
-        <p>Address: Pasig City, Philippines</p>
+        <p>Address: Sabang, Calabanga, Camarines Sur, Philippines</p>
       </section>
     </div>
   );

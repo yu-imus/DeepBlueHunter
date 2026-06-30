@@ -10,6 +10,7 @@ import UserProfile from './pages/UserProfile';
 import axios from 'axios';
 import MainLayout from './pages/MainLayout';
 import VehiclesPage from './pages/Trucking/VehiclesPage';
+import VehicleDetails from './pages/Trucking/VehicleDetails';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -62,6 +63,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/payroll" element={<Payroll />} />
           <Route path="/vehicles" element={<VehiclesPage />} />
+          <Route path="/vehicles/:id" element={<VehicleDetails/>} />
           <Route path="/trucking" element={<Trucking />} />
           <Route path="/userprofile" element={<UserProfile />} />
         </Route>

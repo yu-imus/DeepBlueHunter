@@ -15,11 +15,11 @@ function Login( { setUser } ) {
     e.preventDefault();
     axios.post('http://localhost:5000/api/users/login', { email, password, role })
       .then(res => {
-        console.log(res.data.message);
+        // console.log(res.data.message);
         if (res.data.token) {
           localStorage.setItem("user", JSON.stringify(res.data)); 
           localStorage.setItem("token", res.data.token);
-          console.log(res.data);
+          // console.log(res.data);
           setUser(res.data);
           navigate('/dashboard');
         }

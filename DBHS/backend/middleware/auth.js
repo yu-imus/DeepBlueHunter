@@ -20,6 +20,13 @@ export const protect = async (req, res, next) => {
     return res.status(401).json({ error: 'Not authorized, token failed' });
 };
 
+export const requireAdmin = (req, res, next) => {
+  if (!req.user) return res.status(401).json({ error: 'Not authorized' });
+  const role = (req.user.role || '').toString().toLowerCase();
+  if (role !== 'admin') return res.status(403).json({ error: 'Admin role required' });
+  next();
+};
+
 // export const protect = async (req, res, next) => {
 //   let token;
 
